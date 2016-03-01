@@ -57,26 +57,22 @@ if(isset($_GET['node']) && in_array($_GET['node'], $nodes)) {
 			}
 		}
 	}
+}
 	//print out input string and messages
 	require('form.php');
-	$messages = getMessages($_GET['node']);
-	echo '<table cellpadding="5">
-		<tr>
-			<td>MessageID</td>
-			<td>Originator</td>
-			<td>Text</td>
-			<td>EndPoint</td>
-		</tr>';
-	foreach($messages as $message) {
-		echo '<tr>';
-		echo '<td>'.$message[0].':'.$message[1].'</td>';
-		echo '<td>'.$message[2].'</td>';
-		echo '<td>'.$message[3].'</td>';
-		echo '<td>'.$message[4].'</td>';
-		echo '</tr>';
-	}
-	echo '</table>';
-}
 ?>
+<script language="JavaScript" type="text/javascript" src="./jquery.js"></script>
+<div id="tableHolder"></div>
+<script type="text/javascript">
+    $(document).ready(function(){
+      refreshTable();
+    });
+
+    function refreshTable(){
+        $('#tableHolder').load('./displayMessages.php?node=<?php echo$_GET['node']?>', function(){
+           setTimeout(refreshTable, 1000);
+        });
+    }
+</script>
 </body>
 </html>
