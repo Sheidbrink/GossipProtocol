@@ -35,6 +35,10 @@ if(isset($_GET['node']) && in_array($_GET['node'], $nodes)) {
 			if(isset($r_message->{'Rumor'})) {
 				//Received Rumor
 				$mId = explode(':', $r_message->{'Rumor'}->{'MessageID'});
+				addNode($_GET['node'], 
+					$mId[0], 
+					$r_message->{'EndPoint'});
+				addPeer($_GET['node'], $mId[0]);
 				addMessage($_GET['node'],
 				 $mId[0], 
 				 $mId[1], 
@@ -61,6 +65,7 @@ if(isset($_GET['node']) && in_array($_GET['node'], $nodes)) {
 	//print out input string and messages
 	require('form.php');
 ?>
+<!-- Reload messages every so often -->
 <script language="JavaScript" type="text/javascript" src="./jquery.js"></script>
 <div id="tableHolder"></div>
 <script type="text/javascript">

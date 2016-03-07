@@ -59,6 +59,10 @@ while(TRUE) {
 		}
 	}*/
 	$peers = getPeers($uuid);
+	if(count($peers) == 0) {
+		sleep($stime);
+		continue;
+	}
 	// Get a random peer
 	$peer = getNode($uuid, $peers[array_rand($peers)]);
 	// If we have never handled this peer before
