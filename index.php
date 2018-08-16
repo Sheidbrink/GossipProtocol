@@ -66,7 +66,7 @@ if(isset($_GET['node']) && in_array($_GET['node'], $nodes)) {
 	require('form.php');
 ?>
 <!-- Reload messages every so often -->
-<script language="JavaScript" type="text/javascript" src="./jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <div id="tableHolder"></div>
 <script type="text/javascript">
     $(document).ready(function(){

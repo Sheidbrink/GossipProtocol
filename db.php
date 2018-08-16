@@ -16,7 +16,7 @@ function createDB($uuid) {
 	$stmt->execute();
 	$stmt->close();
 
-	addNode($uuid, $uuid, 'http://45.56.44.13/?node='.$uuid);
+	addNode($uuid, $uuid, 'http://localhost/?node='.$uuid);
 	
 	$stmt = $sql->prepare('CREATE TABLE IF NOT EXISTS peers(root INT UNSIGNED NOT NULL, peer INT UNSIGNED NOT NULL, FOREIGN KEY(root) REFERENCES nodes(id), FOREIGN KEY(peer) REFERENCES nodes(id))');
 	$stmt->execute();
@@ -40,10 +40,10 @@ function getDBNodes() {
 
 function connect($uuid) {
 	if($uuid != NULL) {
-		$sql = new mysqli('localhost', 'root', 'Squish_E@mysql', $uuid);
+		$sql = new mysqli('localhost', 'root', 'password', $uuid);
 	}
 	else {
-		$sql = new mysqli('localhost', 'root', 'Squish_E@mysql');
+		$sql = new mysqli('localhost', 'root', 'password');
 	}
 	if($sql->connect_error) {
 		die('Connection Error: ' . $sql->connect_error);

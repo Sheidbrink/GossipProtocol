@@ -4,7 +4,7 @@
 		<table cellpadding="5">
 			<tr>
 				<td>UUID:</td>
-				<td><input id="addPeer" type="text" name="addPeer"> </id>
+				<td><input id="addPeer" type="text" name="addPeer"> </td>
 			</tr>
 			<tr>
 				<td>Endpoint:</td>
@@ -29,7 +29,7 @@
 				<td><input type="submit" value="Send"></td>
 			</tr>
 		</table>
-		<input id="endpoint" type="hidden" name="endpoint" value="http://45.56.44.13'.$_SERVER['REQUEST_URI'].'">
+		<input id="endpoint" type="hidden" name="endpoint" value="http://localhost'.$_SERVER['REQUEST_URI'].'">
 	</form>
 ';
 ?>
